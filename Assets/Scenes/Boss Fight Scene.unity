@@ -3738,7 +3738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ITEM  OBTAINED
+  m_text: ITEM       OBTAINED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b47edfb08051a444ea93cdcd8ddf77e2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11967,7 +11967,7 @@ TilemapRenderer:
   m_SortingLayer: 7
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0

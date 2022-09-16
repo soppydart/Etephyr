@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     float distanceBetweenPlayerAndAttackPoint;
     [SerializeField] Slider dashSlider;
     PauseMenu pauseMenu;
+    int dashCount = 2;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         WallSlide();
         IsTouchingTraps();
         ReplenishDashBar();
+        AllowDash();
     }
     void OnMove(InputValue value)
     {
@@ -112,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferCounter = 0;
         }
     }
-    bool dashAllowed = true;
+    [SerializeField] bool dashAllowed = true;
     bool isDashing = false;
     public bool isDodging = false;
     bool replenishDashBar = false;
@@ -135,6 +137,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!dashAllowed)
             return;
+        // if (dashCount == 0)
+        //     return;
         if (moveInput.x == 0 && moveInput.y == 0)
             return;
         dashAllowed = false;
@@ -148,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = moveInput.x;
         isDashing = true;
         bool isVerticalDash = false;
-        dashSlider.value = 0;
+        // dashSlider.value = 1;
         if (horizontalInput != 0)
             myRigidbody.velocity = new Vector2(Mathf.Sign(myRigidbody.velocity.x) * dashPowerX, moveInput.y * dashPowerY);
         else
@@ -159,6 +163,9 @@ public class PlayerMovement : MonoBehaviour
             isVerticalDash = true;
             spriteRenderer.flipX = originalFlip;
         }
+        dashSlider.value -= 1;
+        if (dashSlider.value < 0)
+            dashSlider.value = 0;
         StartCoroutine(DashAfterImage());
         yield return new WaitForSeconds(dashTime);
         if (!isVerticalDash && !(moveInput.y == 0 && moveInput.x != 0))
@@ -169,6 +176,17 @@ public class PlayerMovement : MonoBehaviour
         myAnimator.SetBool("isDashing", false);
         yield return new WaitForSeconds(dashCooldown + 0.0f);
         dashAllowed = true;
+        // dashCount = 2;
+    }
+    void AllowDash()
+    {
+        if (dashSlider.value > 1)
+        {
+            dashAllowed = true;
+            Debug.Log(dashSlider.value);
+        }
+        else
+            dashAllowed = false;
     }
     // void DecreaseVerticalVelocity(float velocity)
     // {
