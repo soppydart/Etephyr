@@ -90,14 +90,17 @@ public class MiniBoss : MonoBehaviour
     {
         myAnimator.SetTrigger("isDead");
         MiniBossHealthBar.SetActive(false);
+        FindObjectOfType<AudioManager>().StopSound("Mini-Boss Music Loop");
         StartCoroutine(DestroyMiniBoss());
     }
     IEnumerator DestroyMiniBoss()
     {
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
         Destroy(invisibleWall);
         cutsceneTrigger.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        FindObjectOfType<AudioManager>().PlaySound("Tutorial Music");
+        Destroy(gameObject);
     }
     // public void Rest()
     // {

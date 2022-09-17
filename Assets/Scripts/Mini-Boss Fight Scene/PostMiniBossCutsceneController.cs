@@ -27,6 +27,8 @@ public class PostMiniBossCutsceneController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         WitchDialogueCanvas.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
+        FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
     }
     // public void EndCutscene()
     // {
@@ -65,5 +67,7 @@ public class PostMiniBossCutsceneController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         cameraAnimator.SetTrigger("CutSceneEnded");
         FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().StartMoving();
+        FindObjectOfType<AudioManager>().StopSound("Dialogue Music");
+        FindObjectOfType<AudioManager>().PlaySound("Tutorial Music");
     }
 }

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5508933852843068283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5508933852843068281}
+  - component: {fileID: 5508933852843068280}
+  - component: {fileID: 5508933852843068286}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5508933852843068281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508933852843068283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.2183, y: 7.877291, z: 17.77404}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508933852843068280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508933852843068283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3948e76791045bc4cae90166c2177316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - soundName: Main Menu Theme
+    clip: {fileID: 8300000, guid: f9ceaec1f82197b4887fa54e7f350897, type: 3}
+    volume: 1
+    audioSource: {fileID: 0}
+  - soundName: Tutorial Music
+    clip: {fileID: 8300000, guid: 2376d14492ade3a418e59d524ffe6cb8, type: 3}
+    volume: 1
+    audioSource: {fileID: 0}
+  - soundName: Opening Cutscene Music
+    clip: {fileID: 8300000, guid: d9f6933837700a4489cde16fc6dc4060, type: 3}
+    volume: 1
+    audioSource: {fileID: 0}
+  - soundName: Dialogue Music
+    clip: {fileID: 8300000, guid: 22e5bf83c2225e7449052f58f7a68a3e, type: 3}
+    volume: 1
+    audioSource: {fileID: 0}
+  - soundName: Mini-Boss Music Intro
+    clip: {fileID: 8300000, guid: a35781b300f58e24eab4829489082d3f, type: 3}
+    volume: 0.3
+    audioSource: {fileID: 0}
+  - soundName: Mini-Boss Music Loop
+    clip: {fileID: 8300000, guid: 60a1197ad0db6d34fad4fa964ce42c69, type: 3}
+    volume: 0.3
+    audioSource: {fileID: 0}
+--- !u!114 &5508933852843068286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508933852843068283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fce9c4a88ebaa4f984bba5b439496c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

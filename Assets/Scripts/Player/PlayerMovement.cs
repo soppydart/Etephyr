@@ -183,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
         if (dashSlider.value > 1)
         {
             dashAllowed = true;
-            Debug.Log(dashSlider.value);
+            // Debug.Log(dashSlider.value);
         }
         else
             dashAllowed = false;

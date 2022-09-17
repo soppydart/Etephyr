@@ -30,6 +30,8 @@ public class CutsceneControllerMiniBoss : MonoBehaviour
         myAnimator.SetBool("isMiniBossSpeaking", true);
         yield return new WaitForSeconds(1.5f);
         DialogueCanvas.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
+        FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
     }
     [SerializeField] GameObject MiniBossHealthBar;
     public void endCutscene()
@@ -44,5 +46,14 @@ public class CutsceneControllerMiniBoss : MonoBehaviour
         miniBossAnimator.SetTrigger("startFight");
         miniBoss.isMovementAllowed = true;
         player.StartMoving();
+        FindObjectOfType<AudioManager>().StopSound("Dialogue Music");
+        FindObjectOfType<AudioManager>().PlaySound("Mini-Boss Music Intro");
+        StartCoroutine(PlayLoopMusic());
+    }
+    IEnumerator PlayLoopMusic()
+    {
+        yield return new WaitForSeconds(3f);
+        FindObjectOfType<AudioManager>().StopSound("Mini-Boss Music Intro");
+        FindObjectOfType<AudioManager>().PlaySound("Mini-Boss Music Loop");
     }
 }
