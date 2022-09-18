@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
         foreach (Sound sound in sounds)
         {
             sound.audioSource.volume = sound.volume;
+            sound.audioSource.pitch = sound.pitch;
         }
     }
     public void PlaySound(string sName)
@@ -34,7 +35,8 @@ public class AudioManager : MonoBehaviour
         {
             if (s.soundName == sName)
             {
-                s.audioSource.Play();
+                if (!s.audioSource.isPlaying)
+                    s.audioSource.Play();
                 break;
             }
         }
@@ -50,16 +52,57 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    public void FadeOutSound(string sName)
+    public IEnumerator FadeOutSound(string sName)
     {
         foreach (Sound s in sounds)
         {
             if (s.soundName == sName)
             {
-                while (s.volume > 0)
-                    s.volume -= Time.deltaTime;
-                StopSound(sName);
+                // StartFade(&s, 1f, 0f);
+                float currentTime = 0;
+                float start = s.volume;
+                while (currentTime < 5f)
+                {
+                    currentTime += Time.deltaTime;
+                    s.volume = Mathf.Lerp(start, 0, currentTime / 5f);
+                    Debug.Log(s.volume);
+                }
+                yield return new WaitForSeconds(0.1f);
+                // s.volume = 0.5f;
             }
         }
     }
+    public void StartBossPhaseTransition()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.soundName == "Boss Music Loop")
+            {
+                while (s.pitch > 0.6f)
+                    s.pitch -= Time.deltaTime / 4;
+            }
+        }
+    }
+    public void EndBossPhaseTransition()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.soundName == "Boss Music Loop")
+            {
+                while (s.pitch < 1f)
+                    s.pitch += Time.deltaTime / 4;
+            }
+        }
+    }
+    // IEnumerator StartFade(Sound* s, float duration, float targetVolume)
+    // {
+    //     float currentTime = 0;
+    //     float start = s.volume;
+    //     while (currentTime < duration)
+    //     {
+    //         currentTime += Time.deltaTime;
+    //         s.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+    //         yield return null;
+    //     }
+    // }
 }

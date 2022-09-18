@@ -8,5 +8,6 @@ public class Sound
     public string soundName;
     public AudioClip clip;
     public float volume;
+    public float pitch;
     public AudioSource audioSource;
 }

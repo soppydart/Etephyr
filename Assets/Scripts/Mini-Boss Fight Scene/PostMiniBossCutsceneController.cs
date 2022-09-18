@@ -43,6 +43,7 @@ public class PostMiniBossCutsceneController : MonoBehaviour
     public void EndDialogue()
     {
         cameraAnimator.SetTrigger("DialogueEnded");
+        FindObjectOfType<AudioManager>().StopSound("Dialogue Music");
         StartCoroutine(ActivatePortal());
     }
     IEnumerator ActivatePortal()
@@ -67,7 +68,6 @@ public class PostMiniBossCutsceneController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         cameraAnimator.SetTrigger("CutSceneEnded");
         FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().StartMoving();
-        FindObjectOfType<AudioManager>().StopSound("Dialogue Music");
-        FindObjectOfType<AudioManager>().PlaySound("Tutorial Music");
+        FindObjectOfType<AudioManager>().GetComponent<TutorialTheme>().PlayTutTheme();
     }
 }

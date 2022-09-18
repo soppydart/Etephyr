@@ -29,6 +29,7 @@ public class Portal : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         portalAnimator.SetBool("isClosed", true);
+        FindObjectOfType<AudioManager>().StopSound("Opening Cutscene Music");
         gameController.LoadNextScene();
     }
 }

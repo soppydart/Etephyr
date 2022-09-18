@@ -169,6 +169,7 @@ public class Boss : MonoBehaviour
                 cameraAnimator.SetTrigger("Phase1Ended");
                 StartCoroutine(DisplayBossDialogue2());
                 flag = true;
+                FindObjectOfType<AudioManager>().StartBossPhaseTransition();
             }
             else
                 Die();
@@ -200,6 +201,7 @@ public class Boss : MonoBehaviour
         isMovementAllowed = false;
         FindObjectOfType<BossCutsceneController>().GetComponent<BossCutsceneController>().Letter();
         stopPlayerMovement = true;
+        FindObjectOfType<AudioManager>().StopSound("Boss Music Loop");
         Destroy(gameObject, 5f);
     }
     public void StandUp()
@@ -208,6 +210,7 @@ public class Boss : MonoBehaviour
     }
     public void StartPhase2()
     {
+        FindObjectOfType<AudioManager>().EndBossPhaseTransition();
         myAnimator.SetTrigger("StartPhase2");
         myAnimator.SetBool("isPhase2", true);
         cameraAnimator.SetTrigger("ResumeFight");

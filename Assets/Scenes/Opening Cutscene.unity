@@ -128,6 +128,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3387943188702042353, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
   m_PrefabInstance: {fileID: 3387943188672745784}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &29428173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29428169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1921870e95dd14f94bff0c8b701f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &359781978
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359781980}
   - component: {fileID: 359781981}
+  - component: {fileID: 359781982}
   m_Layer: 0
   m_Name: Timeline Manager
   m_TagString: Untagged
@@ -189,6 +202,18 @@ PlayableDirector:
     value: {fileID: 1305036603}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &359781982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359781978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12e991e73ef5a648a97f5030466fb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &385087371
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,9 +10754,37 @@ PrefabInstance:
       value: Instructions Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1573458213700860550}
+    - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 359781982}
+    - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayOpeningTheme
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: OpeningThemePlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598370438271735811, guid: dba5834996137af4a825daf0844269d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dba5834996137af4a825daf0844269d4, type: 3}
 --- !u!1001 &3387943188672745784
@@ -11109,9 +11162,37 @@ PrefabInstance:
       value: -12.761963
       objectReference: {fileID: 0}
     - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 554221974}
+    - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 359781982}
+    - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StopDialogueMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: OpeningThemePlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387943189471089500, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3387943189603127277, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
       propertyPath: m_fontAsset
       value: 

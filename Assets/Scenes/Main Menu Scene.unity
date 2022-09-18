@@ -1831,6 +1831,7 @@ GameObject:
   - component: {fileID: 888624508}
   - component: {fileID: 888624513}
   - component: {fileID: 888624512}
+  - component: {fileID: 888624514}
   m_Layer: 5
   m_Name: Main Menu Canvas
   m_TagString: Untagged
@@ -1955,6 +1956,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &888624514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888624507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef61274a31af63b479ced4e02cb16e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908127481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +2030,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2312,7 +2325,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9749,6 +9762,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3387943187560683011, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
   m_PrefabInstance: {fileID: 3387943188672745784}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1305362849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.2183
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.877291
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.77404
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068281, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508933852843068283, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
 --- !u!1 &1315302998
 GameObject:
   m_ObjectHideFlags: 0
@@ -9924,7 +9994,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10368,7 +10438,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10837,8 +10907,8 @@ Tilemap:
     m_Data: {fileID: 1987382105, guid: 2344703cbce57df4492b5386b51677a0, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -1268422536, guid: 2344703cbce57df4492b5386b51677a0, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -347756239, guid: 2344703cbce57df4492b5386b51677a0, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -1677545188, guid: 2344703cbce57df4492b5386b51677a0, type: 3}
   - m_RefCount: 3
@@ -10851,8 +10921,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -347756239, guid: 2344703cbce57df4492b5386b51677a0, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1409318578, guid: 3a10f45e829d1e9439581517472f547b, type: 3}
   m_TileMatrixArray:
@@ -11048,7 +11118,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11300,6 +11370,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2057880768}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: StartThisGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 888624514}
+        m_TargetAssemblyTypeName: MenuTheme, Assembly-CSharp
+        m_MethodName: StopMainTheme
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

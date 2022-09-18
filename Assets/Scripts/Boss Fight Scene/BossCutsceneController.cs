@@ -28,11 +28,16 @@ public class BossCutsceneController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         BossDialogueCanvas1.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
+        FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
     }
     public void EndDialogue1()
     {
         cameraAnimator.SetTrigger("StartFight");
         invisibleWall.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().StopSound("Dialogue Music");
+        FindObjectOfType<AudioManager>().PlaySound("Boss Music Intro");
+        StartCoroutine(PlayLoopMusic1());
         StartCoroutine(StartBossFight());
         FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().StartMoving();
     }
@@ -41,6 +46,12 @@ public class BossCutsceneController : MonoBehaviour
         BossHealthBar.SetActive(true);
         yield return new WaitForSeconds(2f);
         bossAnimator.SetTrigger("StartPhase1");
+    }
+    IEnumerator PlayLoopMusic1()
+    {
+        yield return new WaitForSeconds(9f);
+        FindObjectOfType<AudioManager>().StopSound("Boss Music Intro");
+        FindObjectOfType<AudioManager>().PlaySound("Boss Music Loop");
     }
     public void Letter()
     {
