@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Boss
   - Vertically Moving Platform
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Spell
   - Traps
   - FallingPlatform
-  - 
+  - Monk
   - 
   - 
   - 
