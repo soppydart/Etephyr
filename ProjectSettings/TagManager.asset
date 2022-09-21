@@ -8,6 +8,8 @@ TagManager:
   - Boss
   - Vertically Moving Platform
   - Ground
+  - Monk
+  - MonkJumper
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - Traps
   - FallingPlatform
   - Monk
-  - 
+  - MonkFeet
   - 
   - 
   - 

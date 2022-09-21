@@ -10,7 +10,9 @@ public class Monk : MonoBehaviour
     SpriteRenderer mySpriteRenderer;
     [SerializeField] Transform player;
     [SerializeField] Transform[] hitPoints;
+    [SerializeField] float jumpPower = 10f;
     Rigidbody2D myRigidbody2D;
+    public bool isJumping = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,22 +25,25 @@ public class Monk : MonoBehaviour
     {
         LookAtPlayer();
         FlipMonk();
+        Jump();
     }
     void LookAtPlayer()
     {
         if (isAttacking)
             return;
+        int factor = 1;
         if (transform.position.x > player.position.x)
-            transform.localScale = new Vector2(-4.5f, 4.5f);
+            factor = -1;
         else if (transform.position.x < player.position.x)
-            transform.localScale = new Vector2(4.5f, 4.5f);
+            factor = 1;
+        transform.localScale = new Vector2(factor * 4.5f, 4.5f);
     }
     void FlipMonk()
     {
-        if (myRigidbody2D.velocity.x > 0)
-            transform.localScale = new Vector2(4.5f, 4.5f);
-        else if (myRigidbody2D.velocity.x < 0)
-            transform.localScale = new Vector2(-4.5f, 4.5f);
+        // if (myRigidbody2D.velocity.x > 0)
+        //     transform.localScale = new Vector2(4.5f, 4.5f);
+        // else if (myRigidbody2D.velocity.x < 0)
+        //     transform.localScale = new Vector2(-4.5f, 4.5f);
     }
     void OnDrawGizmosSelected()
     {
@@ -48,5 +53,9 @@ public class Monk : MonoBehaviour
                 return;
             Gizmos.DrawWireSphere(hitPoints[i].position, 1f);
         }
+    }
+    public void Jump()
+    {
+        myRigidbody2D.AddForce(Vector2.up * jumpPower);
     }
 }

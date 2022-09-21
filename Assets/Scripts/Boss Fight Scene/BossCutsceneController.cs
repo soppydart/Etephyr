@@ -40,6 +40,7 @@ public class BossCutsceneController : MonoBehaviour
         StartCoroutine(PlayLoopMusic1());
         StartCoroutine(StartBossFight());
         FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().StartMoving();
+        FindObjectOfType<SkipBossCutscene>().GetComponent<SkipBossCutscene>().cutscene1Skipped = true;
     }
     IEnumerator StartBossFight()
     {

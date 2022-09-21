@@ -389,4 +389,8 @@ public class PlayerMovement : MonoBehaviour
         else
             pauseMenu.PauseGame();
     }
+    void OnSkipCutscene()
+    {
+        FindObjectOfType<GameController>().GetComponent<GameController>().SkipCutscene();
+    }
 }

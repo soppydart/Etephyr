@@ -102,4 +102,16 @@ public class GameController : MonoBehaviour
     //     yield return new WaitForSeconds(0.5f);
     //     JumpingInstructionsCanvas.gameObject.SetActive(false);
     // }
+    public void SkipCutscene()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Mini-boss Fight Scene"))
+        {
+            FindObjectOfType<SkipCutscene>().GetComponent<SkipCutscene>().Skip();
+        }
+
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Boss Fight Scene"))
+        {
+            FindObjectOfType<SkipBossCutscene>().GetComponent<SkipBossCutscene>().Skip();
+        }
+    }
 }

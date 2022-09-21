@@ -194,6 +194,20 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(3f);
         StartPhase2();
     }
+    public void SkipDialogue2()
+    {
+        MasterCanvasAnimator.SetTrigger("FadeOut");
+        myAnimator.SetBool("isTransitioning", false);
+        stopPlayerMovement = false;
+        FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().StartMoving();
+        BossHealthBar.SetActive(true);
+        StartCoroutine(BossResumeAttacks());
+    }
+    IEnumerator BossResumeAttacks()
+    {
+        yield return new WaitForSeconds(3f);
+        StartPhase2();
+    }
     bool stopPlayerMovement = false;
     void Die()
     {

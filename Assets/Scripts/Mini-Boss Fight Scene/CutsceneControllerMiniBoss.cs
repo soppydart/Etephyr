@@ -39,6 +39,7 @@ public class CutsceneControllerMiniBoss : MonoBehaviour
         myAnimator.SetBool("isMiniBossSpeaking", false);
         MiniBossHealthBar.SetActive(true);
         StartCoroutine("StartFight");
+        FindObjectOfType<SkipCutscene>().GetComponent<SkipCutscene>().cutscene1Skipped = true;
     }
     IEnumerator StartFight()
     {

@@ -11,6 +11,9 @@ public class CutsceneController : MonoBehaviour
     [SerializeField] Animator cameraAnimator;
     [SerializeField] GameObject portal;
     [SerializeField] Animator witchAnimator;
+    // [SerializeField] PlayableDirector openingCutsceneDirector;
+    // [SerializeField] float timeToSkipTo;
+    // bool sceneSkipped = false;
     bool dialoguesAllowed = false;
     PlayerMovement playerMovement;
     SidewaysMovingInstructions instructions;
@@ -80,4 +83,13 @@ public class CutsceneController : MonoBehaviour
         Time.timeScale = 0f;
         FindObjectOfType<PlayerCombat>().GetComponent<PlayerMovement>().StopMoving();
     }
+    // public void GetDirector(PlayableDirector director)
+    // {
+    //     sceneSkipped = false;
+    //     openingCutsceneDirector = director;
+    // }
+    // public void GetSkipTime(float skipTime)
+    // {
+    //     timeToSkipTo = skipTime;
+    // }
 }
