@@ -102,6 +102,7 @@ public class GameController : MonoBehaviour
     //     yield return new WaitForSeconds(0.5f);
     //     JumpingInstructionsCanvas.gameObject.SetActive(false);
     // }
+    [SerializeField] GameObject MainMenuLoader;
     public void SkipCutscene()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Mini-boss Fight Scene"))
@@ -112,6 +113,12 @@ public class GameController : MonoBehaviour
         else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Boss Fight Scene"))
         {
             FindObjectOfType<SkipBossCutscene>().GetComponent<SkipBossCutscene>().Skip();
+        }
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Ending Scene"))
+        {
+            // FindObjectOfType<SkipEndingCutscene>().GetComponent<SkipEndingCutscene>().Skip();
+            FindObjectOfType<AudioManager>().StopSound("Ending Music");
+            MainMenuLoader.SetActive(true);
         }
     }
 }

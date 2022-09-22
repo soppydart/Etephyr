@@ -5,6 +5,7 @@ using System.Collections;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] Sound[] sounds;
+    [SerializeField] AudioMixerGroup audioMixer;
     void Awake()
     {
         int n = FindObjectsOfType<AudioManager>().Length;
@@ -19,6 +20,7 @@ public class AudioManager : MonoBehaviour
             // sound.audioSource.volume = sound.volume;
             sound.audioSource.loop = true;
             // sound.audioSource.Play();
+            sound.audioSource.outputAudioMixerGroup = audioMixer;
         }
     }
     void Update()
