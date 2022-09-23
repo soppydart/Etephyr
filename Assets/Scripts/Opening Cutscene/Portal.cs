@@ -19,6 +19,10 @@ public class Portal : MonoBehaviour
     {
         if (other.tag == "Player" && !playerHasEnteredPortal)
         {
+            if (FindObjectOfType<CutscenePart2>() != null)
+            {
+                FindObjectOfType<CutscenePart2>().GetComponent<CutscenePart2>().playCutscene2 = false;
+            }
             playerHasEnteredPortal = true;
             playerMovement.StopMoving();
             playerAnimator.SetBool("hasEnteredPortal", true);

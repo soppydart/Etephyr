@@ -1120,6 +1120,7 @@ MonoBehaviour:
   cameraAnimator: {fileID: 1978741540}
   portal: {fileID: 663312538}
   witchAnimator: {fileID: 1627497841}
+  CutscenePlayer2: {fileID: 1850290979}
   InstructionsCanvas: {fileID: 1971104629}
 --- !u!1001 &640678568
 PrefabInstance:
@@ -10733,6 +10734,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1850290979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1850290980}
+  - component: {fileID: 1850290981}
+  m_Layer: 0
+  m_Name: Timeline Manager 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1850290980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850290979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2032827219}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1850290981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850290979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f89c45614283f34abfa8a30855a938f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 380516696438842588}
+  playerAnimator: {fileID: 1739242514}
+  playCutscene2: 1
 --- !u!1 &1912287143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3387943188436106911, guid: aebbe6a359dd26141b7c026dd62df595, type: 3}
@@ -11038,6 +11086,7 @@ Transform:
   - {fileID: 663312540}
   - {fileID: 554221973}
   - {fileID: 920062382}
+  - {fileID: 1850290980}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11232,6 +11281,11 @@ MonoBehaviour:
   ghostDelay: 0.03
   ghost: {fileID: 6099004715430221137, guid: c00bedfa65ed4294a98fdf9a987abcb3, type: 3}
   makeGhost: 0
+--- !u!50 &380516696438842588 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 380516695963146440, guid: 07b1236799c544d44b2beaa7ee4c773a, type: 3}
+  m_PrefabInstance: {fileID: 380516696438842585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &552677573270224806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12069,6 +12123,10 @@ PrefabInstance:
     - target: {fileID: 7271737877071281919, guid: 22d219598057c3c49a2c1607c3e45aae, type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271737877071281919, guid: 22d219598057c3c49a2c1607c3e45aae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22d219598057c3c49a2c1607c3e45aae, type: 3}

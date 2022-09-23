@@ -8,9 +8,9 @@ public class MonkJump : MonoBehaviour
     {
         if (other.tag == "Ground")
         {
-            FindObjectOfType<Monk>().isJumping = true;
+            // FindObjectOfType<Monk>().isJumping = true;
         }
-        else
-            FindObjectOfType<Monk>().isJumping = false;
+        else { }
+        // FindObjectOfType<Monk>().isJumping = false;
     }
 }

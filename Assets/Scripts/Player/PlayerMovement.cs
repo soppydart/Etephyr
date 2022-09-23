@@ -114,7 +114,8 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferCounter = 0;
         }
     }
-    [SerializeField] bool dashAllowed = true;
+    public bool dashAllowed = true;
+    public bool isDashReallyAllowed = true;
     bool isDashing = false;
     public bool isDodging = false;
     bool replenishDashBar = false;
@@ -180,13 +181,17 @@ public class PlayerMovement : MonoBehaviour
     }
     void AllowDash()
     {
-        if (dashSlider.value > 1)
+        if (dashSlider.value > 1 && isDashReallyAllowed)
         {
             dashAllowed = true;
             // Debug.Log(dashSlider.value);
         }
         else
             dashAllowed = false;
+        // if (isDashReallyAllowed = false)
+        //     dashAllowed = false;
+        // else
+        //     dashAllowed = true;
     }
     // void DecreaseVerticalVelocity(float velocity)
     // {

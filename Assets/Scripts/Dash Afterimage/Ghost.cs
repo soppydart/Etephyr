@@ -26,6 +26,7 @@ public class Ghost : MonoBehaviour
         {
             GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
             currentGhost.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+            currentGhost.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
             if (GetComponent<SpriteRenderer>().flipX)
                 currentGhost.GetComponent<SpriteRenderer>().flipX = true;
             ghostDelaySeconds = ghostDelay;

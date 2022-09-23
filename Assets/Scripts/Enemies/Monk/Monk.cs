@@ -12,7 +12,7 @@ public class Monk : MonoBehaviour
     [SerializeField] Transform[] hitPoints;
     [SerializeField] float jumpPower = 10f;
     Rigidbody2D myRigidbody2D;
-    public bool isJumping = false;
+    public bool isMovementAllowed = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,8 @@ public class Monk : MonoBehaviour
     {
         LookAtPlayer();
         FlipMonk();
-        Jump();
+        if (!isMovementAllowed)
+            myRigidbody2D.velocity = new Vector2(0f, myRigidbody2D.velocity.y);
     }
     void LookAtPlayer()
     {
@@ -54,8 +55,12 @@ public class Monk : MonoBehaviour
             Gizmos.DrawWireSphere(hitPoints[i].position, 1f);
         }
     }
-    public void Jump()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        myRigidbody2D.AddForce(Vector2.up * jumpPower);
+        if (other.tag == "MonkJumper")
+        {
+            myRigidbody2D.velocity = new Vector2(0f, jumpPower);
+            Debug.Log("Whooshhh");
+        }
     }
 }

@@ -68,12 +68,21 @@ public class CutsceneController : MonoBehaviour
         witchAnimator.SetBool("witchDisappears", false);
         StartCoroutine(AllowPlayerToMove());
     }
+    [SerializeField] GameObject CutscenePlayer2;
+    IEnumerator MovePlayer()
+    {
+        // yield return new WaitForSeconds(2f);
+        FindObjectOfType<AudioManager>().PlaySound("Opening Cutscene Music");
+        yield return new WaitForSeconds(3f);
+        CutscenePlayer2.SetActive(true);
+    }
     IEnumerator AllowPlayerToMove()
     {
         yield return new WaitForSeconds(2f);
         cameraAnimator.SetBool("isMovementAllowed", true);
-        playerMovement.StartMoving();
-        StartCoroutine(ShowSidewaysMovingInstructions());
+        StartCoroutine(MovePlayer());
+        // playerMovement.StartMoving();
+        // StartCoroutine(ShowSidewaysMovingInstructions());
     }
     [SerializeField] GameObject InstructionsCanvas;
     IEnumerator ShowSidewaysMovingInstructions()
