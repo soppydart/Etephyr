@@ -72,7 +72,7 @@ public class CutsceneController : MonoBehaviour
     IEnumerator MovePlayer()
     {
         // yield return new WaitForSeconds(2f);
-        FindObjectOfType<AudioManager>().PlaySound("Opening Cutscene Music");
+        // FindObjectOfType<AudioManager>().PlaySound("Main Menu Theme");
         yield return new WaitForSeconds(3f);
         CutscenePlayer2.SetActive(true);
     }

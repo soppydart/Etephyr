@@ -26,11 +26,25 @@ public class Ghost : MonoBehaviour
         {
             GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
             currentGhost.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
-            currentGhost.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+            // currentGhost.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
             if (GetComponent<SpriteRenderer>().flipX)
                 currentGhost.GetComponent<SpriteRenderer>().flipX = true;
+            StartCoroutine(SmoothAfterimage(currentGhost));
             ghostDelaySeconds = ghostDelay;
             Destroy(currentGhost, 2f);
         }
+    }
+    IEnumerator SmoothAfterimage(GameObject ai)
+    {
+        yield return new WaitForSeconds(0.07f);
+        ai.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+        yield return new WaitForSeconds(0.07f);
+        ai.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+        yield return new WaitForSeconds(0.07f);
+        ai.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+        yield return new WaitForSeconds(0.07f);
+        ai.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+        yield return new WaitForSeconds(0.07f);
+        ai.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
     }
 }

@@ -114,6 +114,10 @@ public class GameController : MonoBehaviour
         {
             FindObjectOfType<SkipBossCutscene>().GetComponent<SkipBossCutscene>().Skip();
         }
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Opening Cutscene"))
+        {
+            LoadNextSceneInstantly();
+        }
         else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Ending Scene"))
         {
             // FindObjectOfType<SkipEndingCutscene>().GetComponent<SkipEndingCutscene>().Skip();

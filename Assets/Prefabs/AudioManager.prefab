@@ -52,12 +52,12 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Tutorial Music
-    clip: {fileID: 8300000, guid: 2376d14492ade3a418e59d524ffe6cb8, type: 3}
+    clip: {fileID: 8300000, guid: d9f6933837700a4489cde16fc6dc4060, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Opening Cutscene Music
-    clip: {fileID: 8300000, guid: d9f6933837700a4489cde16fc6dc4060, type: 3}
+    clip: {fileID: 8300000, guid: bb2acfe24d9f8bb45b85a7df20d5fa3b, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}

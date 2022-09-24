@@ -275,6 +275,7 @@ MonoBehaviour:
   dashSlider: {fileID: 0}
   hasJumpedOnce: 0
   dashAllowed: 1
+  isDashReallyAllowed: 1
   isDodging: 0
   verticalHangVelocity: 6
   frontCheck: {fileID: 7474550934492069620}
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019fc652723d6be458c4c45b9b719e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostDelay: 0.02
+  ghostDelay: 0.1
   ghost: {fileID: 6099004715430221137, guid: c00bedfa65ed4294a98fdf9a987abcb3, type: 3}
   makeGhost: 0
 --- !u!1 &2939618031578403729

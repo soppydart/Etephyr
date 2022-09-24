@@ -6,11 +6,21 @@ public class OpeningThemePlayer : MonoBehaviour
 {
     public void PlayOpeningTheme()
     {
-        FindObjectOfType<AudioManager>().PlaySound("Opening Cutscene Music");
     }
     public void StopDialogueMusic()
     {
         FindObjectOfType<AudioManager>().StopSound("Dialogue Music");
+
+    }
+    private void Start()
+    {
+        StartCoroutine(PlaySound());
+
+    }
+    IEnumerator PlaySound()
+    {
+        yield return new WaitForSeconds(0f);
+        FindObjectOfType<AudioManager>().PlaySound("Opening Cutscene Music");
 
     }
 }

@@ -167,8 +167,8 @@ public class PlayerMovement : MonoBehaviour
         dashSlider.value -= 1;
         if (dashSlider.value < 0)
             dashSlider.value = 0;
-        StartCoroutine(DashAfterImage());
         yield return new WaitForSeconds(dashTime);
+        StartCoroutine(DashAfterImage());
         if (!isVerticalDash && !(moveInput.y == 0 && moveInput.x != 0))
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, verticalHangVelocity);
         // DecreaseVerticalVelocity(myRigidbody.velocity.y);
