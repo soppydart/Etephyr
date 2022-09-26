@@ -7,6 +7,7 @@ public class CutsceneControllerMiniBoss : MonoBehaviour
     [SerializeField] Animator myAnimator;
     [SerializeField] Animator miniBossAnimator;
     [SerializeField] GameObject DialogueCanvas;
+    [SerializeField] GameObject skipCanvas;
     public bool isInCutscene = false;
     bool cutsceneHasStarted = false;
     MiniBoss miniBoss;
@@ -40,6 +41,7 @@ public class CutsceneControllerMiniBoss : MonoBehaviour
         MiniBossHealthBar.SetActive(true);
         StartCoroutine("StartFight");
         FindObjectOfType<SkipCutscene>().GetComponent<SkipCutscene>().cutscene1Skipped = true;
+        skipCanvas.SetActive(false);
     }
     IEnumerator StartFight()
     {

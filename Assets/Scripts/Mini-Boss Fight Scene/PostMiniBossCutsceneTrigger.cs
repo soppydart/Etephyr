@@ -7,6 +7,7 @@ public class PostMiniBossCutsceneTrigger : MonoBehaviour
     [SerializeField] Animator myAnimator;
     [SerializeField] GameObject invisibleWall;
     [SerializeField] GameObject Witch;
+    [SerializeField] GameObject skipCanvas;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -15,6 +16,7 @@ public class PostMiniBossCutsceneTrigger : MonoBehaviour
             myAnimator.SetTrigger("Post Fight Cutscene");
             invisibleWall.gameObject.SetActive(true);
             Witch.gameObject.SetActive(true);
+            skipCanvas.SetActive(true);
         }
     }
 }

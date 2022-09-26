@@ -52,6 +52,7 @@ public class PostMiniBossCutsceneController : MonoBehaviour
         Portal.gameObject.SetActive(true);
         StartCoroutine(EndCutscene());
     }
+    [SerializeField] GameObject skipCanvas;
     IEnumerator EndCutscene()
     {
         Debug.Log("HIIIII PPPP");
@@ -62,6 +63,7 @@ public class PostMiniBossCutsceneController : MonoBehaviour
     }
     IEnumerator DestroyWitch()
     {
+        skipCanvas.SetActive(false);
         yield return new WaitForSeconds(3f);
         witchAnimator.SetTrigger("EndCutscene");
         Destroy(Trigger);

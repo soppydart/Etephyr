@@ -8,17 +8,20 @@ public class ProceduralGeneration : MonoBehaviour
     [SerializeField] int width;
     [SerializeField] int height;
     [SerializeField] float smoothness;
-    [SerializeField] float seed;
+    float seed = 1;
     [SerializeField] TileBase groundTile;
     [SerializeField] Tilemap groundTilemap;
     int[,] map;
     void Start()
     {
+        FindObjectOfType<AudioManager>().GetComponent<AudioManager>().PlaySound("Arcade Music");
         Generation();
     }
 
     void Generation()
     {
+        seed = Random.Range(1, 10000);
+        groundTilemap.ClearAllTiles();
         map = GenerateArray(width, height, true);
         map = TerrainGeneration(map);
         RenderMap(map, groundTilemap, groundTile);
@@ -61,5 +64,9 @@ public class ProceduralGeneration : MonoBehaviour
                 }
             }
         }
+    }
+    public void StopMusic()
+    {
+        FindObjectOfType<AudioManager>().GetComponent<AudioManager>().StopSound("Arcade Music");
     }
 }

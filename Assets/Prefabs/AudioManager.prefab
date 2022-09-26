@@ -48,22 +48,22 @@ MonoBehaviour:
   sounds:
   - soundName: Main Menu Theme
     clip: {fileID: 8300000, guid: f9ceaec1f82197b4887fa54e7f350897, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Tutorial Music
     clip: {fileID: 8300000, guid: d9f6933837700a4489cde16fc6dc4060, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Opening Cutscene Music
     clip: {fileID: 8300000, guid: bb2acfe24d9f8bb45b85a7df20d5fa3b, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Dialogue Music
     clip: {fileID: 8300000, guid: 22e5bf83c2225e7449052f58f7a68a3e, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Mini-Boss Music Intro
@@ -88,6 +88,11 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - soundName: Ending Music
     clip: {fileID: 8300000, guid: 325e9afe5f6fd374fb22bd2ddab7af94, type: 3}
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+  - soundName: Arcade Music
+    clip: {fileID: 8300000, guid: b2f637cdb2ee56840b8b827f42cb84cc, type: 3}
     volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
