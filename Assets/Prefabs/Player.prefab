@@ -77,7 +77,6 @@ GameObject:
   - component: {fileID: 1739242514}
   - component: {fileID: 1739242521}
   - component: {fileID: 1739242522}
-  - component: {fileID: 2108368606}
   - component: {fileID: 8655498917138328723}
   - component: {fileID: 2110655146}
   m_Layer: 6
@@ -103,6 +102,7 @@ Transform:
   - {fileID: 82237517}
   - {fileID: 7474550934492069620}
   - {fileID: 1853332269150350072}
+  - {fileID: 1054692194936748496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,8 +171,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00298702, y: -0.04488098}
-  m_Size: {x: 0.20846045, y: 0.33276975}
+  m_Offset: {x: -0.00298702, y: -0.04642291}
+  m_Size: {x: 0.20846045, y: 0.33585364}
   m_Direction: 0
 --- !u!50 &380516695963146440
 Rigidbody2D:
@@ -190,7 +190,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 05d5bb3010985b745b4b6ff8320b6db3, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -278,38 +278,21 @@ MonoBehaviour:
   isDashReallyAllowed: 1
   isDodging: 0
   verticalHangVelocity: 6
+  groundCheck: {fileID: 1054692194936748496}
+  checkGroundRadius: 0.7
+  ground:
+    serializedVersion: 2
+    m_Bits: 49160
   frontCheck: {fileID: 7474550934492069620}
   checkRadius: 1
   Wall:
     serializedVersion: 2
     m_Bits: 512
+  traps:
+    serializedVersion: 2
+    m_Bits: 393216
   isWallSliding: 0
---- !u!61 &2108368606
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380516695963146452}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0024744575, y: -0.21084392}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.44, y: 0.5}
-    oldSize: {x: 0.64, y: 0.44}
-    newSize: {x: 0.64, y: 0.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.006863584, y: 0.0009950399}
-  m_EdgeRadius: 0
+  isTripleJumpingAllowed: 0
 --- !u!114 &8655498917138328723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,4 +653,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 380516695963146441}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6023877030127243845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1054692194936748496}
+  m_Layer: 6
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1054692194936748496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023877030127243845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.199, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 380516695963146441}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

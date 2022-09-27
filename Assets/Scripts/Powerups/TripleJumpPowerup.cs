@@ -14,6 +14,7 @@ public class TripleJumpPowerup : MonoBehaviour
         pickUpAllowed = false;
         Debug.Log("Pain");
         originalColor = other.GetComponent<SpriteRenderer>().color;
+        other.GetComponent<PlayerMovement>().isTripleJumpingAllowed = true;
         // Instantiate(pickUpEffect, transform.position, transform.rotation);
         StartCoroutine(Pickup(other));
     }
@@ -22,6 +23,7 @@ public class TripleJumpPowerup : MonoBehaviour
         player.GetComponent<PlayerMovement>().isDashReallyAllowed = false;
         player.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f);
         yield return new WaitForSeconds(5f);
+        player.GetComponent<PlayerMovement>().isTripleJumpingAllowed = false;
         Debug.Log("No Pain");
         pickUpAllowed = true;
         player.GetComponent<SpriteRenderer>().color = originalColor;

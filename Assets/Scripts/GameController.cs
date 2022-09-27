@@ -122,6 +122,7 @@ public class GameController : MonoBehaviour
         {
             // FindObjectOfType<SkipEndingCutscene>().GetComponent<SkipEndingCutscene>().Skip();
             FindObjectOfType<AudioManager>().StopSound("Ending Music");
+            Destroy(FindObjectOfType<AudioManager>());
             MainMenuLoader.SetActive(true);
         }
     }

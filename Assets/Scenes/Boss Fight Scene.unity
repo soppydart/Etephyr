@@ -35398,7 +35398,6 @@ MonoBehaviour:
   DialogueCanvases:
   - {fileID: 569555895}
   - {fileID: 1518633197}
-  MasterCanvasAnimator: {fileID: 0}
   cutscene1Skipped: 0
 --- !u!1 &1504924912
 GameObject:

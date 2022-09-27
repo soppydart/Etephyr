@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     CapsuleCollider2D myCapsuleCollider;
-    BoxCollider2D myFeetCollider;
+    // BoxCollider2D myFeetCollider;
     bool isTouchingGround = true;
     bool isTouchingWall = false;
     public bool isPlayerMovementAllowed = true;
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        myFeetCollider = GetComponent<BoxCollider2D>();
+        // myFeetCollider = GetComponent<BoxCollider2D>();
         distanceBetweenPlayerAndAttackPoint = transform.position.x - attackPoint.transform.position.x;
         dashSlider.value = 3;
         pauseMenu = FindObjectOfType<PauseMenu>();
@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     }
     bool hasJumped = false;
     public bool hasJumpedOnce = false;
+    int jumpsAllowed = 1;
     void OnJump(InputValue value)
     {
         if (isDashing || !isPlayerMovementAllowed)
@@ -78,6 +79,11 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed)
         {
             jumpBufferCounter = jumpBufferTime;
+            if (isTripleJumpingAllowed && jumpsAllowed > 0)
+            {
+                myRigidbody.velocity = new Vector2(0f, jumpSpeed * 1.5f);
+                jumpsAllowed--;
+            }
             if (isWallSliding)
             {
                 // if (!spriteRenderer.flipX)
@@ -105,12 +111,15 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
-        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0)
+        if ((coyoteTimeCounter > 0f && jumpBufferCounter > 0))
         {
             hasJumped = true;
             hasJumpedOnce = true;
             if (isPlayerJumpingAllowed)
+            {
                 myRigidbody.velocity = new Vector2(0f, jumpSpeed);
+                myAnimator.SetBool("isJumping", true);
+            }
             jumpBufferCounter = 0;
         }
     }
@@ -229,24 +238,48 @@ public class PlayerMovement : MonoBehaviour
     bool hasReachedMidAir = false;
     void JumpAnimation()
     {
+        if (isTouchingGround)
+        {
+            myAnimator.SetBool("isJumping", false);
+            if (isTripleJumpingAllowed)
+                jumpsAllowed = 2;
+            else
+                jumpsAllowed = 1;
+        }
+        else
+            myAnimator.SetBool("isJumping", true);
         jumpBufferCounter -= Time.deltaTime;
-        if (hasJumped && !isTouchingGround && myRigidbody.velocity.y > 0)
-        {
-            coyoteTimeCounter = 0;
+        // if (hasJumped && !isTouchingGround && myRigidbody.velocity.y > 0)
+        // {
+        //     coyoteTimeCounter = 0;
+        //     myAnimator.SetBool("isGoingUp", true);
+        // }
+        // else if (hasJumped && !isTouchingGround && myRigidbody.velocity.y < 0)
+        // {
+        //     myAnimator.SetBool("isGoingUp", false);
+        //     myAnimator.SetBool("isGoingDown", true);
+        //     hasReachedMidAir = true;
+        // }
+        // else if (hasJumped && isTouchingGround && hasReachedMidAir)
+        // {
+        //     myAnimator.SetBool("isGoingDown", false);
+        //     hasJumped = false;
+        //     hasReachedMidAir = false;
+        // }
+
+        if (myRigidbody.velocity.y > 0)
             myAnimator.SetBool("isGoingUp", true);
-        }
-        else if (hasJumped && !isTouchingGround && myRigidbody.velocity.y < 0)
-        {
+        else
             myAnimator.SetBool("isGoingUp", false);
+        if (myRigidbody.velocity.y < 0)
             myAnimator.SetBool("isGoingDown", true);
-            hasReachedMidAir = true;
-        }
-        else if (hasJumped && isTouchingGround && hasReachedMidAir)
-        {
+        else
             myAnimator.SetBool("isGoingDown", false);
-            hasJumped = false;
-            hasReachedMidAir = false;
-        }
+
+    }
+    public void OnLanding()
+    {
+        myAnimator.SetBool("isJumping", false);
     }
     // void IsFalling()
     // {
@@ -293,10 +326,15 @@ public class PlayerMovement : MonoBehaviour
             attackPoint.transform.position.y);
         }
     }
+    //for ground check
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float checkGroundRadius;
+    [SerializeField] LayerMask ground;
     void IsTouchingGround()
     {
-        isTouchingGround = myFeetCollider.IsTouchingLayers
-        (LayerMask.GetMask("Ground", "MovingPlatform", "BreakingPlatform"));
+        // isTouchingGround = myFeetCollider.IsTouchingLayers
+        // (LayerMask.GetMask("Ground", "MovingPlatform", "BreakingPlatform"));
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, checkGroundRadius, ground);
     }
     [SerializeField] Transform frontCheck;
     [SerializeField] float checkRadius = 1f;
@@ -305,10 +343,11 @@ public class PlayerMovement : MonoBehaviour
     {
         isTouchingWall = Physics2D.OverlapCircle(frontCheck.position, checkRadius, Wall);
     }
+    [SerializeField] LayerMask traps;
     void IsTouchingTraps()
     {
-        if (myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Traps", "FallingPlatforms")) ||
-        myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Traps", "FallingPlatforms")))
+        if (Physics2D.OverlapCircle(groundCheck.position, checkGroundRadius, traps) ||
+        Physics2D.OverlapCircle(frontCheck.position, checkGroundRadius, traps))
         {
             Debug.Log("Touched");
             GetComponent<PlayerCombat>().TouchedTraps();
@@ -398,4 +437,8 @@ public class PlayerMovement : MonoBehaviour
     {
         FindObjectOfType<GameController>().GetComponent<GameController>().SkipCutscene();
     }
+
+    //section for triple jumping
+    public bool isTripleJumpingAllowed = false;
+
 }

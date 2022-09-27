@@ -8,6 +8,7 @@ public class MenuTheme : MonoBehaviour
     void Start()
     {
         FindObjectOfType<AudioManager>().PlaySound("Main Menu Theme");
+        Debug.Log("Theme started");
     }
 
     public void StopMainTheme()
