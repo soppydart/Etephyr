@@ -9,6 +9,7 @@ public class PostMiniBossCutsceneController : MonoBehaviour
     [SerializeField] GameObject Portal;
     [SerializeField] Animator witchAnimator;
     [SerializeField] Animator cameraAnimator;
+    public bool skipped = false;
     void Start()
     {
 
@@ -26,9 +27,12 @@ public class PostMiniBossCutsceneController : MonoBehaviour
     IEnumerator StartDialogue()
     {
         yield return new WaitForSeconds(2f);
-        WitchDialogueCanvas.gameObject.SetActive(true);
-        FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
-        FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
+        if (!skipped)
+        {
+            WitchDialogueCanvas.gameObject.SetActive(true);
+            FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
+            FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
+        }
     }
     // public void EndCutscene()
     // {

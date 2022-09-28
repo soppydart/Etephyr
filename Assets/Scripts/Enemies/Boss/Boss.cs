@@ -155,6 +155,8 @@ public class Boss : MonoBehaviour
     [SerializeField] GameObject BossHealthBar;
     public void TakeDamage(int damage)
     {
+        if (isDefending)
+            return;
         currentHealth -= damage;
         Debug.Log("AHHHHHHHHHH");
         myAnimator.SetTrigger("isHit");
@@ -230,4 +232,5 @@ public class Boss : MonoBehaviour
         cameraAnimator.SetTrigger("ResumeFight");
     }
     [SerializeField] Slider healthSlider;
+    public bool isDefending = false;
 }

@@ -107,4 +107,24 @@ public class AudioManager : MonoBehaviour
     //         yield return null;
     //     }
     // }
+    public void LowerPitch()
+    {
+        foreach (Sound s in sounds)
+        {
+            while (s.pitch > 0.4f)
+                s.pitch -= Time.deltaTime / 4;
+        }
+    }
+    public void IncreasePitch()
+    {
+        foreach (Sound s in sounds)
+        {
+            while (s.pitch < 1f)
+                s.pitch += Time.deltaTime / 4;
+        }
+    }
+    public void DestroyAudioManager()
+    {
+        Destroy(gameObject);
+    }
 }

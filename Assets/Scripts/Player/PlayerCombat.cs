@@ -11,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] LayerMask skeletonLayer;
     [SerializeField] LayerMask miniBossLayer;
     [SerializeField] LayerMask bossLayer;
+    [SerializeField] LayerMask monkLayer;
     [SerializeField] int attackDamage = 50;
     [SerializeField] float attackDuration = 0.8f;
     Rigidbody2D myRigidbody;
@@ -55,6 +56,9 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] hitBoss = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bossLayer);
         foreach (Collider2D enemy in hitBoss)
             enemy.GetComponent<Boss>().TakeDamage(attackDamage);
+        Collider2D[] hitMonk = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, monkLayer);
+        foreach (Collider2D monk in hitMonk)
+            monk.GetComponent<Monk>().TakeDamage();
     }
     IEnumerator OverridingAttackAnimation()
     {
@@ -84,6 +88,7 @@ public class PlayerCombat : MonoBehaviour
         {
             myAnimator.SetTrigger("isDead");
             Debug.Log("You Died");
+            FindObjectOfType<AudioManager>().GetComponent<AudioManager>().LowerPitch();
             StartCoroutine(ShowGameOverButtons());
             StartCoroutine(Die());
         }
@@ -98,6 +103,7 @@ public class PlayerCombat : MonoBehaviour
     {
         myAnimator.SetTrigger("Trap");
         GameOverBackground.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().GetComponent<AudioManager>().LowerPitch();
         StartCoroutine(ShowGameOverButtons());
     }
     IEnumerator ShowGameOverButtons()

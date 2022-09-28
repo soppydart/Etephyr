@@ -103,15 +103,27 @@ public class GameController : MonoBehaviour
     //     JumpingInstructionsCanvas.gameObject.SetActive(false);
     // }
     [SerializeField] GameObject MainMenuLoader;
+    bool flag = false;
     public void SkipCutscene()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Mini-boss Fight Scene"))
         {
-            FindObjectOfType<SkipCutscene>().GetComponent<SkipCutscene>().Skip();
+            if (!flag)
+            {
+                FindObjectOfType<CutsceneControllerMiniBoss>().GetComponent<CutsceneControllerMiniBoss>().skipped = true;
+                FindObjectOfType<SkipCutscene>().GetComponent<SkipCutscene>().Skip();
+                flag = true;
+            }
+            else
+            {
+                FindObjectOfType<PostMiniBossCutsceneController>().GetComponent<PostMiniBossCutsceneController>().skipped = true;
+                FindObjectOfType<SkipCutscene>().GetComponent<SkipCutscene>().Skip();
+            }
         }
 
         else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Boss Fight Scene"))
         {
+            FindObjectOfType<BossCutsceneController>().GetComponent<BossCutsceneController>().skipped = true;
             FindObjectOfType<SkipBossCutscene>().GetComponent<SkipBossCutscene>().Skip();
         }
         else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Opening Cutscene"))
@@ -125,5 +137,10 @@ public class GameController : MonoBehaviour
             Destroy(FindObjectOfType<AudioManager>());
             MainMenuLoader.SetActive(true);
         }
+    }
+    public void LoadArcadeMode()
+    {
+        SceneManager.LoadScene("Procedurally Generated Scene");
+        Destroy(FindObjectOfType<AudioManager>());
     }
 }

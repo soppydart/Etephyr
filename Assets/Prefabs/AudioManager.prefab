@@ -68,22 +68,22 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - soundName: Mini-Boss Music Intro
     clip: {fileID: 8300000, guid: a35781b300f58e24eab4829489082d3f, type: 3}
-    volume: 0.3
+    volume: 0.1
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Mini-Boss Music Loop
     clip: {fileID: 8300000, guid: 60a1197ad0db6d34fad4fa964ce42c69, type: 3}
-    volume: 0.3
+    volume: 0.1
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Boss Music Intro
     clip: {fileID: 8300000, guid: fb00fef4b035c194aa6dffeb4e06e0b2, type: 3}
-    volume: 0.3
+    volume: 0.1
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Boss Music Loop
     clip: {fileID: 8300000, guid: e506bc180a5c6b541bc78f8794b64752, type: 3}
-    volume: 0.3
+    volume: 0.1
     pitch: 1
     audioSource: {fileID: 0}
   - soundName: Ending Music
@@ -93,6 +93,11 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - soundName: Arcade Music
     clip: {fileID: 8300000, guid: b2f637cdb2ee56840b8b827f42cb84cc, type: 3}
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+  - soundName: Chase Music
+    clip: {fileID: 8300000, guid: b17947ee3fa51a34995f746f5662a300, type: 3}
     volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}

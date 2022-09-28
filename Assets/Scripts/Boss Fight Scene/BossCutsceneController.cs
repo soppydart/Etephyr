@@ -10,6 +10,7 @@ public class BossCutsceneController : MonoBehaviour
     [SerializeField] GameObject invisibleWall;
     [SerializeField] GameObject LetterPrompt;
     [SerializeField] GameObject BossHealthBar;
+    public bool skipped = false;
     void Start()
     {
 
@@ -27,9 +28,12 @@ public class BossCutsceneController : MonoBehaviour
     IEnumerator BossDialogue1()
     {
         yield return new WaitForSeconds(1f);
-        BossDialogueCanvas1.gameObject.SetActive(true);
-        FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
-        FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
+        if (!skipped)
+        {
+            BossDialogueCanvas1.gameObject.SetActive(true);
+            FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
+            FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
+        }
     }
     public void EndDialogue1()
     {

@@ -627,8 +627,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1351228232}
     - target: {fileID: 2449029133822793681, guid: 7d0f359b1ca84004f97ab452d4e6c665, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 272548910}
+    - target: {fileID: 2449029133822793681, guid: 7d0f359b1ca84004f97ab452d4e6c665, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449029133822793681, guid: 7d0f359b1ca84004f97ab452d4e6c665, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DestroyAudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449029133942271016, guid: 7d0f359b1ca84004f97ab452d4e6c665, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 272548910}
+    - target: {fileID: 2449029133942271016, guid: 7d0f359b1ca84004f97ab452d4e6c665, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DestroyAudioManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d0f359b1ca84004f97ab452d4e6c665, type: 3}
@@ -1163,6 +1179,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262385658}
   m_CullTransparentMesh: 1
+--- !u!114 &272548910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5508933852843068280, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+  m_PrefabInstance: {fileID: 1282865946}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3948e76791045bc4cae90166c2177316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284896503
 GameObject:
   m_ObjectHideFlags: 0
@@ -3743,6 +3770,7 @@ MonoBehaviour:
   MasterCanvasAnimator: {fileID: 932351402}
   BossHealthBar: {fileID: 1304423236}
   healthSlider: {fileID: 1171863469}
+  isDefending: 0
 --- !u!1 &752015581
 GameObject:
   m_ObjectHideFlags: 0

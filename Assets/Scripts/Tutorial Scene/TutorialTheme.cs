@@ -6,6 +6,7 @@ public class TutorialTheme : MonoBehaviour
 {
     public void PlayTutTheme()
     {
+        FindObjectOfType<AudioManager>().StopSound("Opening Cutscene Music");
         FindObjectOfType<AudioManager>().PlaySound("Tutorial Music");
     }
 }

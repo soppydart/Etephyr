@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial Scene.unity
     guid: 2f64e0c34038ac24dacc9220dbf0327a
   - enabled: 1
+    path: Assets/Scenes/Chase Scene.unity
+    guid: 38dc7bdf84064f346a0c6c3476957a0f
+  - enabled: 1
     path: Assets/Scenes/Mini-boss Fight Scene.unity
     guid: 8be74e560a8c69d4b85bcb4b92fa1730
   - enabled: 1
@@ -26,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending Scene.unity
     guid: 0972f5bab5edc8b4e852767ff4f17f32
+  - enabled: 1
+    path: Assets/Scenes/Procedurally Generated Scene.unity
+    guid: b642519f237fee146ac90b2393b5763b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 926bd7ed418db8247b6b8f30bf5472fb, type: 2}

@@ -11,6 +11,7 @@ public class CutsceneControllerMiniBoss : MonoBehaviour
     public bool isInCutscene = false;
     bool cutsceneHasStarted = false;
     MiniBoss miniBoss;
+    public bool skipped = false;
     PlayerMovement player;
     void Start()
     {
@@ -30,9 +31,12 @@ public class CutsceneControllerMiniBoss : MonoBehaviour
         yield return new WaitForSeconds(1f);
         myAnimator.SetBool("isMiniBossSpeaking", true);
         yield return new WaitForSeconds(1.5f);
-        DialogueCanvas.gameObject.SetActive(true);
-        FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
-        FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
+        if (!skipped)
+        {
+            DialogueCanvas.gameObject.SetActive(true);
+            FindObjectOfType<AudioManager>().StopSound("Tutorial Music");
+            FindObjectOfType<AudioManager>().PlaySound("Dialogue Music");
+        }
     }
     [SerializeField] GameObject MiniBossHealthBar;
     public void endCutscene()

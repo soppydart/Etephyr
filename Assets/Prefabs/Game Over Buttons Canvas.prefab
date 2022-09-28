@@ -405,6 +405,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5508933852843068280, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: DestroyAudioManager
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2449029133942271022
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +542,18 @@ MonoBehaviour:
       - m_Target: {fileID: 552677574408387825, guid: f78df84549f8f0744895707ae06a47ab, type: 3}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5508933852843068280, guid: 55c7cbe1f441bd74d87ac5ad557dcd03, type: 3}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: DestroyAudioManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

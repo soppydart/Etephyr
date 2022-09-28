@@ -13,11 +13,13 @@ public class Monk : MonoBehaviour
     [SerializeField] float jumpPower = 10f;
     Rigidbody2D myRigidbody2D;
     public bool isMovementAllowed = true;
+    Animator myAnimator;
     // Start is called before the first frame update
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -62,5 +64,29 @@ public class Monk : MonoBehaviour
             myRigidbody2D.velocity = new Vector2(0f, jumpPower);
             Debug.Log("Whooshhh");
         }
+    }
+    [SerializeField] LayerMask playerLayer;
+    public void Attack1()
+    {
+        Collider2D[] playerColliders = Physics2D.OverlapCircleAll(hitPoints[0].position, 0.25f, playerLayer);
+        foreach (Collider2D player in playerColliders)
+            player.GetComponent<PlayerCombat>().TakeDamage(5);
+    }
+    public void Attack2()
+    {
+        Collider2D[] playerColliders = Physics2D.OverlapCircleAll(hitPoints[0].position, 0.25f, playerLayer);
+        foreach (Collider2D player in playerColliders)
+            player.GetComponent<PlayerCombat>().TakeDamage(10);
+    }
+    public void Attack3()
+    {
+        Collider2D[] playerColliders = Physics2D.OverlapCircleAll(hitPoints[1].position, 1f, playerLayer);
+        foreach (Collider2D player in playerColliders)
+            player.GetComponent<PlayerCombat>().TakeDamage(15);
+    }
+    public void TakeDamage()
+    {
+        myAnimator.SetTrigger("Hit");
+        Debug.Log("oge rrat");
     }
 }

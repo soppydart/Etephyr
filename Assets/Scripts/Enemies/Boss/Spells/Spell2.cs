@@ -37,20 +37,15 @@ public class Spell2 : MonoBehaviour
         }
         flag = true;
     }
-    bool hitPlayer = false;
     void OnTriggerEnter2D(Collider2D other)
     {
         myRigidbody.velocity = new Vector2(0f, 0f);
         GetComponent<Animator>().SetTrigger("DestroySpell");
         if (other.tag == "Player")
         {
-            if (other.GetComponent<PlayerMovement>().isDodging)
-                hitPlayer = true;
-            else
+            if (!other.GetComponent<PlayerMovement>().isDodging)
                 GetComponent<Animator>().SetTrigger("DestroySpell");
         }
-        else
-            GetComponent<Animator>().SetTrigger("DestroySpell");
     }
     public void DestroySpell()
     {
@@ -59,9 +54,6 @@ public class Spell2 : MonoBehaviour
     public void InflictSpellDamage()
     {
         Debug.Log("Boss Spell Hit");
-        if (hitPlayer)
-        {
-            FindObjectOfType<PlayerMovement>().GetComponent<PlayerCombat>().TakeDamage(30);
-        }
+        FindObjectOfType<PlayerMovement>().GetComponent<PlayerCombat>().TakeDamage(20);
     }
 }

@@ -15,7 +15,7 @@ public class ShiftCamera2 : MonoBehaviour
             tutorialCameraAnimator.SetBool("DashingTutorial", false);
             if (flag)
             {
-                StartCoroutine(ShowWallJumpInstructions());
+                // StartCoroutine(ShowWallJumpInstructions());
                 flag = false;
             }
         }
