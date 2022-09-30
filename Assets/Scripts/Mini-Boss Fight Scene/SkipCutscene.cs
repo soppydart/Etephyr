@@ -17,6 +17,7 @@ public class SkipCutscene : MonoBehaviour
 
     public void Skip()
     {
+        FindObjectOfType<AudioManager>().StopAllSounds();
         Debug.Log(cutscene1Skipped);
         if (!cutscene1Skipped)
         {

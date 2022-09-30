@@ -127,4 +127,11 @@ public class AudioManager : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public void StopAllSounds()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.audioSource.Stop();
+        }
+    }
 }

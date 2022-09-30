@@ -8,7 +8,7 @@ public class ProceduralGeneration : MonoBehaviour
     [SerializeField] int width;
     [SerializeField] int height;
     [SerializeField] float smoothness;
-    float seed = 1;
+    float generator = 1;
     [SerializeField] TileBase groundTile;
     [SerializeField] Tilemap groundTilemap;
     int[,] map;
@@ -20,7 +20,7 @@ public class ProceduralGeneration : MonoBehaviour
 
     void Generation()
     {
-        seed = Random.Range(1, 10000);
+        generator = Random.Range(1, 10000);
         groundTilemap.ClearAllTiles();
         map = GenerateArray(width, height, true);
         map = TerrainGeneration(map);
@@ -43,7 +43,7 @@ public class ProceduralGeneration : MonoBehaviour
         int perlinHeight;
         for (int x = 0; x < width; x++)
         {
-            perlinHeight = Mathf.RoundToInt(Mathf.PerlinNoise(x / smoothness, seed) * height / 2);
+            perlinHeight = Mathf.RoundToInt(Mathf.PerlinNoise(x / smoothness, generator) * height / 2);
             perlinHeight += height / 2;
             for (int y = 0; y < perlinHeight; y++)
             {

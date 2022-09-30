@@ -440,5 +440,8 @@ public class PlayerMovement : MonoBehaviour
 
     //section for triple jumping
     public bool isTripleJumpingAllowed = false;
-
+    public void SetPosition(Vector3 newPos)
+    {
+        transform.position = newPos;
+    }
 }

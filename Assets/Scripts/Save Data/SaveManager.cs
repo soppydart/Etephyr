@@ -14,6 +14,8 @@ public static class SaveManager
             Directory.CreateDirectory(dir);
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(dir + fileName, json);
+        Debug.Log("Game Saved " + gameData.playerPosition);
+        Debug.Log(dir);
     }
     public static GameData Load()
     {

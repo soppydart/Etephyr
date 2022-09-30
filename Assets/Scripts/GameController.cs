@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     // }
     public void LoadNextScene()
     {
+        FindObjectOfType<AudioManager>().IncreasePitch();
         StartCoroutine(LoadScene());
     }
     IEnumerator LoadScene()
@@ -39,10 +40,12 @@ public class GameController : MonoBehaviour
     }
     public void LoadNextSceneInstantly()
     {
+        FindObjectOfType<AudioManager>().IncreasePitch();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void ReloadScene()
     {
+        FindObjectOfType<AudioManager>().IncreasePitch();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     [SerializeField] GameObject InstructionsCanvas;
@@ -142,5 +145,38 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("Procedurally Generated Scene");
         Destroy(FindObjectOfType<AudioManager>());
+    }
+    public void LoadGameFromFile()
+    {
+        FindObjectOfType<GameLoader>().LoadGame(SaveManager.Load());
+    }
+    public void LoadGameFromFileContinue()
+    {
+        FindObjectOfType<GameLoader>().LoadFromContinue(SaveManager.Load());
+    }
+    public int GetSceneNumber()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+    //Part Loader functions
+    public void Part1()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void Part2()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void Part3()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void Part4()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void Part5()
+    {
+        SceneManager.LoadScene(5);
     }
 }

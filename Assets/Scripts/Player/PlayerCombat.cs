@@ -89,19 +89,27 @@ public class PlayerCombat : MonoBehaviour
             myAnimator.SetTrigger("isDead");
             Debug.Log("You Died");
             FindObjectOfType<AudioManager>().GetComponent<AudioManager>().LowerPitch();
-            StartCoroutine(ShowGameOverButtons());
             StartCoroutine(Die());
+            StartCoroutine(ShowGameOverButtons());
         }
     }
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0f);
-        GameOverBackground.gameObject.SetActive(true);
-        StartCoroutine(ShowGameOverButtons());
+        if (showGameOver == true)
+        {
+            showGameOver = false;
+            GameOverBackground.gameObject.SetActive(true);
+            StartCoroutine(ShowGameOverButtons());
+        }
     }
+    public bool showGameOver = true;
     public void TouchedTraps()
     {
         myAnimator.SetTrigger("Trap");
+        if (!showGameOver)
+            return;
+        showGameOver = false;
         GameOverBackground.gameObject.SetActive(true);
         FindObjectOfType<AudioManager>().GetComponent<AudioManager>().LowerPitch();
         StartCoroutine(ShowGameOverButtons());
@@ -109,6 +117,16 @@ public class PlayerCombat : MonoBehaviour
     IEnumerator ShowGameOverButtons()
     {
         yield return new WaitForSeconds(1.5f);
+        currentHealth = 100;
         GameOverButtons.gameObject.SetActive(true);
+        myAnimator.SetTrigger("Revive");
+    }
+    public void SetHealth(float h)
+    {
+        currentHealth = h;
+    }
+    public float GetHealth()
+    {
+        return currentHealth;
     }
 }
