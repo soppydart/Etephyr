@@ -188,6 +188,11 @@ public class PlayerMovement : MonoBehaviour
         dashAllowed = true;
         // dashCount = 2;
     }
+    public void AllowRealDash()
+    {
+        dashAllowed = true;
+        isDashReallyAllowed = true;
+    }
     void AllowDash()
     {
         if (dashSlider.value > 1 && isDashReallyAllowed)
@@ -360,6 +365,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator.SetBool("isRunning", false);
         dashAllowed = false;
         GetComponent<PlayerCombat>().attackAllowed = false;
+        dashAllowed = false;
     }
     public void StartMoving()
     {
@@ -367,6 +373,7 @@ public class PlayerMovement : MonoBehaviour
         isPlayerJumpingAllowed = true;
         dashAllowed = true;
         GetComponent<PlayerCombat>().attackAllowed = true;
+        dashAllowed = true;
     }
     void CoyoteTime()
     {
